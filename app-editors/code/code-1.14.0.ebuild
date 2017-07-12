@@ -51,10 +51,9 @@ src_install(){
         mv "${S}" "${ED}${CODE_FILE_HOME}" || die
 
         dosym "${ED}${CODE_FILE_HOME}/${PN}" "/usr/bin/${PN}" || die
-        make_desktop_entry "${PN}" "Visual Studio Code" "${PN}" "Development;IDE" || die
-        # doicon does not support 1024x1024 icon size yet
-        insinto "/usr/share/icons/hicolor/1024x1024/apps"
-        doins "${ED}${CODE_FILE_HOME}/resources/app/resources/linux/${PN}.png" || die
+        insinto "/usr/share/applications/"
+        doins "${FILESDIR}/${PN}.desktop" || die
+        doicon "${ED}${CODE_FILE_HOME}/resources/app/resources/linux/${PN}.png" || die
 
         pax-mark m "${ED}${CODE_FILE_HOME}/${PN}"
 
