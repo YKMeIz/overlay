@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <!-- maintainer-needed -->
+  <longdescription>VS Code is a new type of tool that combines the simplicity of a code editor with what developers need for their core edit-build-debug cycle.</longdescription>
+  <upstream>
+    <remote-id type="github">Microsoft/vscode</remote-id>
+  </upstream>
+</pkgmetadata>
