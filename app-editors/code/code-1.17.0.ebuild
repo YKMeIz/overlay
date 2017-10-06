@@ -30,10 +30,6 @@ RDEPEND="${DEPEND}
 	x11-libs/libXScrnSaver
 	app-crypt/libsecret"
 
-ARCH=$(getconf LONG_BIT)
-
-[[ ${ARCH} == "64" ]] && S="${WORKDIR}/VSCode-linux-x64" || S="${WORKDIR}/VSCode-linux-ia32"
-
 QA_PRESTRIPPED="opt/${PN}/${PN}"
 
 src_unpack() {
@@ -44,7 +40,7 @@ src_install(){
 	declare CODE_FILE_HOME=/opt/${PN}
 
 	dodir ${CODE_FILE_HOME%/*}
-	mv "${S}" "${ED}${CODE_FILE_HOME}" || die
+	mv "${WORKDIR}/VSCode-linux-*" "${ED}${CODE_FILE_HOME}" || die
 
 	dosym "${ED}${CODE_FILE_HOME}/${PN}" "/usr/bin/${PN}" || die
 	insinto "/usr/share/applications/"
